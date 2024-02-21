@@ -1,6 +1,6 @@
 const express = require('express') //익스프레스 모듈을 가져온다
 const app = express()   //새로운 익스프레스 앱을 만든다.
-const port = 3000
+const port = 4000
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { auth } = require("./middleware/auth");
@@ -22,6 +22,9 @@ mongoose.connect(config.mongoURI, {
 //루트 디렉토리에 헬로월드 출력
 app.get('/', (req, res) => {
     res.send('Hello World! 안녕하세요~~~')
+})
+app.get('/api/hello', (req, res) =>{
+  res.send("안녕하세여");
 })
 
 app.post('/api/users/register', async (req, res) => {
